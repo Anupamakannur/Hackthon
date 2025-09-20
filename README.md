@@ -1,9 +1,5 @@
 # Automated Resume Relevance Check System
 
-## Innomatics Research Labs - Enterprise Solution
-
-A comprehensive AI-powered resume evaluation system designed to automate the recruitment process for Innomatics Research Labs across Hyderabad, Bangalore, Pune, and Delhi NCR locations.
-
 ## 🚀 Features
 
 ### Core Functionality
@@ -328,13 +324,4 @@ For support and questions:
 - Web dashboard and API
 - Multi-role user management
 
-## 📞 Contact
 
-**Innomatics Research Labs**
-- Website: [innomatics.in](https://innomatics.in)
-- Email: support@innomatics.in
-- Phone: +91-XXXXXXXXXX
-
----
-
-**Built with ❤️ for Innomatics Research Labs**
