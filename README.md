@@ -3,10 +3,10 @@
 ============================================================
 🚀 COMPLETE RESUME EVALUATOR SYSTEM
 ============================================================
-✅ All functionality working
-🌐 Access at: http://localhost:5000
-📊 Dashboard: http://localhost:5000/dashboard
-📤 Upload: http://localhost:5000/upload
+✅ All functionality working  
+🌐 Access at: http://localhost:5000  
+📊 Dashboard: http://localhost:5000/dashboard  
+📤 Upload: http://localhost:5000/upload  
 ============================================================
 
 
