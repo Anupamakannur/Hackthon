@@ -1,0 +1,33 @@
+Vamshi Kiran 
+vamsikiran@gmail.com | linkedin.com/in/vamsi-kiran| github.com/vamshi | 9876543210 
+
+Summary  
+Results-driven Data Analyst with expertise in SQL, Power BI (DAX), Python and business research tools .Skilled in transforming raw data into actionable insights to drive business decisions. Proficient in Data visualization, competitor analysis, web analysis, Strong analytical and problem-solving skills with experience in sales research, customer segmentation and business intelligence to optimize business perfomance  
+
+Education  
+Master in Business Administration – Marketing & International Business  
+All India Shree Shiva Memorial Society, IOM, Hyderabad (2022 – 2024)  
+Bachelor of Business Administration – Marketing  
+Vasantdada patil institute of management & Research, Sangli (2019 - 2022)  
+
+Technical Skills   
+Market Research Tools: Apollo, Google Analytics   
+Data Analysis & Data Visualization: SQL (My SQL, PostgreSQL) Power BI, Matplotlib, Seaborn, Pandas, NumPy  
+Programming & Data Processing: Python (Pandas, NumPy), Power Query, DAX Excel (Pivot Table, Data Validation), PowerPoint, Word  
+Business Intelligence & Web Analytics: Google Ads, SEO, Competitor Analysis   
+
+Projects  
+Consumer sentiment Analysis - Top MBA Colleges in India  
+∙ Analyzing top MBA colleges in India based on their College Ranking, Fees, Exam, Student review & Ranking. ∙ For data cleaning and statistical comparisons used Pandas and Numpy.   
+∙ Created interactive Charts and insights dashboard using Matplotlib, Seaborn, and Pandas Data Frame styling for better insights.  
+∙ Compared government and private institutions based on fees, ranking, and admission criteria & correlation between ratings, Rankings and fees  
+
+Data analysis & visualization – Telangana weather Data  
+∙ Analysed Telangana's weather data, covering rainfall (mm), temperature (°C), humidity (%), and wind speed across different mandals.  
+∙ Developed interactive Power BI dashboards to assess weather impact on regional climate trends, seasonal variations. ∙ 
+Applied DAX measures to analyze monthly trends, anomalies, and forecasting insights for better decision-making ∙ 
+Conducted comparative analysis across multiple mandals to identify high-risk areas for extreme weather events  
+
+Management System (MySQL & Data Warehousing)  
+∙ Designed & implemented a normalized database schema to streamline book inventory and member management processes.  
+∙ Developed stored procedure and triggers to automate fine calculation and ensure data integrity for overdue tracking. ∙ Created optimized SQL queries and a reporting system for efficient book tracking, availability monitoring & member engagement analysis

@@ -1,0 +1,51 @@
+JAY RAJ 
+Email: jayraj10@gmail.com | Phone No: +91 9876543210 | Linkdin | Github  
+
+SUMMARY  
+AspiringDataAnalyst with hands-on experience in turning raw data into meaningful insights that help improve business performance. Undergoing training at Innomatics Research Labs, focused on data analysis using SQL, Python, and libraries such as Pandas, NumPy, Matplotlib, and Seaborn. Strong foundation in Statistics and Mathematics with proficiency in analytical tools and technologies to derive actionable insights.  
+
+EDUCATION  
+Bachelor of Technology in Computer Science and Engineering CGPA -7.5 DEC 2021 -2025 Karmveer Bhaurao Patil College of Engineering Satara   
+
+SKILLS  
+Programming Languages: Python (Pandas, NumPy, Matplotlib, Seaborn), SQL (MySQL, PostgreSQL) Data Manipulation & Cleaning: Handling missing values, data transformation, filtering, grouping, exploratory data analysis (EDA), and web scraping using Beautiful Soup and Requests  
+
+Data Visualization: Power BI (Dashboards, Interactive Charts), Microsoft Excel (Pivot Tables, Conditional Format , Chart Tools)  
+
+Statistical Analysis: Descriptive statistics, correlation analysis, hypothesis testing  
+
+Soft Skills: Problem Solving, Critical Thinking, Collaboration, Communication, Adaptability  
+
+PROJECTS  
+Data-Driven Analysis of MHT-CET 2024 Engineering College Cutoffs  
+Tools & Technologies: Python (Pandas, NumPy, Matplotlib, Seaborn, Regex), SQL, Power BI • Extracted real-time cutoff data from https://fe2024.mahacet.org/ using Python web scraping (Requests,Beautiful Soup).  
+
+•	Used Regex to transform unstructured cutoff strings into structured columns (College Name, Branch, Category, Cutoff Score).  
+
+•	Cleaned and transformed data by handling missing values, standardizing formats, and performing type conversions. Conducted Exploratory Data Analysis (EDA) to identify top-performing colleges, high-demand branches, and category-wise trends.  
+
+•	Detected and addressed outliers, applied data visualization techniques (histograms, boxplots, heatmaps) using Matplotlib & Seaborn.  
+
+•	Built an interactive Power BI dashboard to explore college-wise, region-wise, and category-wise cutoff comparisons.  
+
+Weather Data Analysis Dashboard – Power BI Project  
+•	Designed and developed a 5-page interactive Power BI dashboard analyzing weather parameters (rainfall, temperature, humidity, wind speed) across Telangana districts and mandals, with centralized navigation and intuitive slicers.  
+
+•	Applied Power Query for data cleaning and transformation, used DAX to compute weather KPIs, detect seasonal trends, and highlight anomalies across regions.  
+
+•	Created dynamic visualizations including bar, line, scatter, donut, heat maps, and tables to uncover actionable insights from four-year weather data.  
+
+•	Enabled climate-aware decision-making by identifying vulnerable regions and long-term weather shifts, supporting planning in agriculture, health, and infrastructure.  
+
+Music Store Sales & Customer Insights Analysis  
+Tools & Technologies: MySQL (Joins, Subqueries, CTEs, Window Functions)  
+
+•	Analyzed a normalized 11-table relational database consisting of (employee, customer, invoice, invoice_line, track, playlist, playlist_track, album, artist, genre, and media_type)  
+
+•	Wrote optimized SQL queries using joins ,group by ,havings , and window functions to identify sales and customer trends.  
+
+•	Gained expertise in relational design, foreign key relationships, and multi-table querying. • 
+
+Delivered clean, well-structured queries to support data-driven decision-making.  
+
+•	Practiced query modularity and performance tuning for efficient analysis.

@@ -1,0 +1,29 @@
+Data Engineer Intern - Walk-In Drive
+
+Location: Pune (Onsite) 
+Internship Duration: 6 months 
+Bond: 24 months post internship if converted to job 
+
+Requirements: 
+• Formal training on Python & Spark 
+• No prior experience required; 2022 or earlier graduates preferred 
+
+Job Responsibilities: 
+• Build scalable streaming data pipelines 
+• Write complex SQL queries to transform source data 
+• Write stable, enterprise-grade code 
+• Deploy data pipelines with DevOps team 
+• Build automated job scheduling and monitoring scripts 
+
+Skills: 
+• Exceptional programming skills in Python, Spark, Kafka, Pyspark, and C++ 
+• Strong SQL and complex query writing skills 
+• Knowledge of Pandas, Numpy, and Databricks (advantageous) 
+• Familiarity with Exploratory Data Analysis and data pre-processing 
+
+Eligibility Criteria: 
+• Qualification: B.Tech, BE 
+• Batch Eligibility: 2023 and earlier pass-outs 
+• Job Types: Full-time, Internship, Fresher, Permanent 
+• Stipend: ₹5,000 per month 
+• Schedule: Day shift, Monday to Friday

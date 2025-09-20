@@ -1,0 +1,280 @@
+{% extends "simple_base.html" %}
+
+{% block title %}Dashboard - Resume Evaluator{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">
+    <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+    <button class="btn btn-secondary float-end" onclick="location.reload()">
+        <i class="fas fa-sync-alt me-2"></i>Refresh Dashboard
+    </button>
+</h1>
+
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ total_jobs or 0 }}</h4>
+                        <p class="card-text">Total Jobs</p>
+                    </div>
+                    <i class="fas fa-briefcase fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ total_resumes or 0 }}</h4>
+                        <p class="card-text">Total Resumes</p>
+                        {% if total_size_mb %}
+                        <small>{{ total_size_mb }} MB</small>
+                        {% endif %}
+                    </div>
+                    <i class="fas fa-file-pdf fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ total_evaluations or 0 }}</h4>
+                        <p class="card-text">Evaluations</p>
+                    </div>
+                    <i class="fas fa-chart-line fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ avg_score or 0 }}%</h4>
+                        <p class="card-text">Avg Score</p>
+                    </div>
+                    <i class="fas fa-percentage fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="/upload" class="btn btn-primary">
+                        <i class="fas fa-upload me-2"></i>Upload Resume
+                    </a>
+                    <button class="btn btn-success" onclick="alert('Job creation feature coming soon!')">
+                        <i class="fas fa-plus me-2"></i>Create Job Description
+                    </button>
+                    <button class="btn btn-info" onclick="alert('Evaluation feature coming soon!')">
+                        <i class="fas fa-chart-line me-2"></i>View Evaluations
+                    </button>
+                    <button class="btn btn-secondary" onclick="location.reload()">
+                        <i class="fas fa-sync-alt me-2"></i>Refresh Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">System Status</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle me-2"></i>System is running normally
+                </div>
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>AI services are available
+                </div>
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i>Some features are in development
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Uploaded Files</h5>
+            </div>
+            <div class="card-body">
+                {% if total_resumes and total_resumes > 0 %}
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle me-2"></i>{{ total_resumes }} file(s) uploaded successfully
+                    </div>
+                    <p class="text-muted">Files are stored in the uploads directory and ready for processing.</p>
+                {% else %}
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>No files uploaded yet
+                    </div>
+                    <p class="text-muted">Upload your first resume to get started!</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- File Management Section -->
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-file-pdf me-2"></i>Uploaded Resumes
+                    <span class="badge bg-success ms-2">{{ uploaded_resumes|length }}</span>
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if uploaded_resumes %}
+                    {% for file in uploaded_resumes %}
+                    <div class="file-item d-flex justify-content-between align-items-center" id="file-{{ file }}">
+                        <div>
+                            <i class="fas fa-file-pdf text-danger me-2"></i>
+                            <span>{{ file }}</span>
+                            <small class="text-muted d-block">{{ file_sizes.get(file, 'Unknown size') }}</small>
+                        </div>
+                        <div>
+                            <button class="btn btn-sm btn-outline-danger delete-btn" 
+                                    onclick="confirmDelete('{{ file }}', 'resume')"
+                                    title="Delete Resume">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted">No resumes uploaded yet.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-briefcase me-2"></i>Job Descriptions
+                    <span class="badge bg-info ms-2">{{ job_descriptions|length }}</span>
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if job_descriptions %}
+                    {% for file in job_descriptions %}
+                    <div class="file-item d-flex justify-content-between align-items-center" id="file-{{ file }}">
+                        <div>
+                            <i class="fas fa-file-alt text-info me-2"></i>
+                            <span>{{ file }}</span>
+                            <small class="text-muted d-block">{{ file_sizes.get(file, 'Unknown size') }}</small>
+                        </div>
+                        <div>
+                            <button class="btn btn-sm btn-outline-danger delete-btn" 
+                                    onclick="confirmDelete('{{ file }}', 'job')"
+                                    title="Delete Job Description">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted">No job descriptions uploaded yet.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Confirm delete function
+function confirmDelete(fileName, fileType) {
+    if (confirm(`Are you sure you want to delete ${fileName}? This action cannot be undone.`)) {
+        deleteFile(fileName, fileType);
+    }
+}
+
+// Delete file function
+function deleteFile(fileName, fileType) {
+    console.log('Attempting to delete:', fileName, 'Type:', fileType);
+    
+    fetch(`/api/delete/${fileType}/${fileName}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        console.log('Response status:', response.status);
+        return response.json();
+    })
+    .then(data => {
+        console.log('Response data:', data);
+        if (data.success) {
+            // Remove the file item from the page
+            const fileItem = document.getElementById(`file-${fileName}`);
+            if (fileItem) {
+                fileItem.remove();
+            }
+            // Show success message
+            showAlert('File deleted successfully!', 'success');
+            // Refresh the page after a short delay
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+        } else {
+            showAlert('Error deleting file: ' + data.message, 'danger');
+        }
+    })
+    .catch(error => {
+        console.error('Delete error:', error);
+        showAlert('Error deleting file: ' + error.message, 'danger');
+    });
+}
+
+// Show alert function
+function showAlert(message, type) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+    alertDiv.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    document.body.insertBefore(alertDiv, document.body.firstChild);
+}
+</script>
+
+<style>
+.file-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+}
+.delete-btn {
+    color: #dc3545;
+}
+.delete-btn:hover {
+    color: #c82333;
+}
+</style>
+{% endblock %}

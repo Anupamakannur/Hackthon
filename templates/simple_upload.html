@@ -1,0 +1,102 @@
+{% extends "simple_base.html" %}
+
+{% block title %}Upload Files - Resume Evaluator{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">
+    <i class="fas fa-upload me-2"></i>Upload Files
+</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label class="form-label">Select File Type:</label>
+                        <div class="btn-group w-100" role="group">
+                            <input type="radio" class="btn-check" name="fileType" id="resume" value="resume" checked>
+                            <label class="btn btn-outline-primary" for="resume">
+                                <i class="fas fa-file-pdf me-2"></i>Resume
+                            </label>
+                            
+                            <input type="radio" class="btn-check" name="fileType" id="job" value="job">
+                            <label class="btn btn-outline-info" for="job">
+                                <i class="fas fa-briefcase me-2"></i>Job Description
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Select File</label>
+                        <input type="file" class="form-control" id="file" name="file" 
+                               accept=".pdf,.doc,.docx,.txt" required>
+                        <div class="form-text">
+                            Supported formats: PDF, DOC, DOCX, TXT (Max size: 16MB)
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="candidate_name" class="form-label">Name (Optional)</label>
+                        <input type="text" class="form-control" id="candidate_name" name="candidate_name"
+                               placeholder="Enter candidate name or job title">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email (Optional)</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                               placeholder="Enter email address">
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-upload me-2"></i>Upload File
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="uploadResult" class="mt-3" style="display: none;">
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle me-2"></i>
+                        <span id="resultMessage"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('uploadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const fileType = document.querySelector('input[name="fileType"]:checked').value;
+    formData.append('fileType', fileType);
+    
+    const resultDiv = document.getElementById('uploadResult');
+    const messageSpan = document.getElementById('resultMessage');
+    
+    fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            messageSpan.textContent = 'Error: ' + data.error;
+            resultDiv.querySelector('.alert').className = 'alert alert-danger';
+        } else {
+            messageSpan.textContent = data.message + ' - File: ' + data.filename;
+            resultDiv.querySelector('.alert').className = 'alert alert-success';
+        }
+        resultDiv.style.display = 'block';
+    })
+    .catch(error => {
+        messageSpan.textContent = 'Error: ' + error.message;
+        resultDiv.querySelector('.alert').className = 'alert alert-danger';
+        resultDiv.style.display = 'block';
+    });
+});
+</script>
+{% endblock %}

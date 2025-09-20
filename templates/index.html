@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - Automated Resume Relevance Check System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <!-- Hero Section -->
+        <div class="jumbotron bg-primary text-white rounded p-5 mb-5">
+            <div class="container-fluid">
+                <h1 class="display-4 fw-bold">Automated Resume Relevance Check System</h1>
+                <p class="lead">AI-powered resume evaluation and job matching for Innomatics Research Labs</p>
+                <hr class="my-4">
+                <p>Streamline your recruitment process with intelligent resume analysis, relevance scoring, and personalized feedback generation.</p>
+                {% if not current_user.is_authenticated %}
+                <a class="btn btn-light btn-lg me-3" href="{{ url_for('auth.register') }}" role="button">
+                    <i class="fas fa-user-plus me-2"></i>Get Started
+                </a>
+                <a class="btn btn-outline-light btn-lg" href="{{ url_for('auth.login') }}" role="button">
+                    <i class="fas fa-sign-in-alt me-2"></i>Login
+                </a>
+                {% else %}
+                <a class="btn btn-light btn-lg" href="{{ url_for('dashboard.index') }}" role="button">
+                    <i class="fas fa-tachometer-alt me-2"></i>Go to Dashboard
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Features Section -->
+    <div class="col-lg-8">
+        <h2 class="mb-4">Key Features</h2>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary text-white rounded-circle p-3 me-3">
+                                <i class="fas fa-robot fa-lg"></i>
+                            </div>
+                            <h5 class="card-title mb-0">AI-Powered Analysis</h5>
+                        </div>
+                        <p class="card-text">Advanced machine learning algorithms analyze resumes and job descriptions to provide accurate relevance scoring and insights.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success text-white rounded-circle p-3 me-3">
+                                <i class="fas fa-file-upload fa-lg"></i>
+                            </div>
+                            <h5 class="card-title mb-0">Multi-Format Support</h5>
+                        </div>
+                        <p class="card-text">Upload resumes in PDF, DOC, DOCX, or TXT formats. Our system automatically extracts and parses relevant information.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-info text-white rounded-circle p-3 me-3">
+                                <i class="fas fa-chart-line fa-lg"></i>
+                            </div>
+                            <h5 class="card-title mb-0">Relevance Scoring</h5>
+                        </div>
+                        <p class="card-text">Get detailed relevance scores (0-100) with breakdowns for skills, experience, education, and certifications.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-warning text-white rounded-circle p-3 me-3">
+                                <i class="fas fa-comments fa-lg"></i>
+                            </div>
+                            <h5 class="card-title mb-0">Personalized Feedback</h5>
+                        </div>
+                        <p class="card-text">Generate actionable feedback and improvement suggestions for candidates to enhance their profiles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Statistics Section -->
+    <div class="col-lg-4">
+        <h2 class="mb-4">System Statistics</h2>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Processing Capacity</h5>
+                <div class="row text-center">
+                    <div class="col-6">
+                        <div class="border-end">
+                            <h3 class="text-primary mb-0">1000+</h3>
+                            <small class="text-muted">Resumes/Week</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <h3 class="text-success mb-0">18-20</h3>
+                        <small class="text-muted">Job Postings/Week</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Coverage</h5>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2">
+                        <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                        Hyderabad
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                        Bangalore
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                        Pune
+                    </li>
+                    <li class="mb-0">
+                        <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                        Delhi NCR
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Benefits</h5>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Faster Shortlisting
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Consistent Evaluation
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Reduced Workload
+                    </li>
+                    <li class="mb-0">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Better Candidate Experience
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works Section -->
+<div class="row mt-5">
+    <div class="col-12">
+        <h2 class="text-center mb-5">How It Works</h2>
+        
+        <div class="row">
+            <div class="col-md-3 text-center mb-4">
+                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                    <span class="h3 mb-0">1</span>
+                </div>
+                <h5>Upload Resume</h5>
+                <p class="text-muted">Upload candidate resumes in supported formats (PDF, DOC, DOCX, TXT)</p>
+            </div>
+            
+            <div class="col-md-3 text-center mb-4">
+                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                    <span class="h3 mb-0">2</span>
+                </div>
+                <h5>Create Job Description</h5>
+                <p class="text-muted">Define job requirements and criteria for accurate matching</p>
+            </div>
+            
+            <div class="col-md-3 text-center mb-4">
+                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                    <span class="h3 mb-0">3</span>
+                </div>
+                <h5>AI Analysis</h5>
+                <p class="text-muted">AI algorithms analyze and score resume-job relevance</p>
+            </div>
+            
+            <div class="col-md-3 text-center mb-4">
+                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                    <span class="h3 mb-0">4</span>
+                </div>
+                <h5>Get Results</h5>
+                <p class="text-muted">Receive detailed scores, feedback, and improvement suggestions</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

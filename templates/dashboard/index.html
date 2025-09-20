@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Resume Evaluator{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+            <small class="text-muted">Welcome back, {{ current_user.first_name }}!</small>
+        </h1>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-4">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Total Jobs
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            {{ stats.total_jobs or 0 }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-briefcase fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Total Resumes
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            {{ stats.total_resumes or 0 }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-file-pdf fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Evaluations
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            {{ stats.total_evaluations or 0 }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            This Week
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            {{ stats.recent_evaluations or 0 }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Recent Evaluations -->
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Recent Evaluations</h6>
+                <a href="{{ url_for('dashboard.evaluations') }}" class="btn btn-sm btn-primary">
+                    View All
+                </a>
+            </div>
+            <div class="card-body">
+                {% if recent_evaluations %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Resume</th>
+                                    <th>Job</th>
+                                    <th>Score</th>
+                                    <th>Verdict</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for evaluation in recent_evaluations %}
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-file-pdf text-danger me-2"></i>
+                                            {{ evaluation.resume.original_filename[:30] }}{% if evaluation.resume.original_filename|length > 30 %}...{% endif %}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="fw-bold">{{ evaluation.job_description.title }}</div>
+                                        <small class="text-muted">{{ evaluation.job_description.company }}</small>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-{% if evaluation.relevance_score >= 80 %}success{% elif evaluation.relevance_score >= 60 %}warning{% else %}danger{% endif %}">
+                                            {{ evaluation.relevance_score }}%
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-{% if evaluation.fit_verdict == 'high' %}success{% elif evaluation.fit_verdict == 'medium' %}warning{% else %}danger{% endif %}">
+                                            {{ evaluation.fit_verdict.title() }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">
+                                            {{ evaluation.created_at.strftime('%Y-%m-%d %H:%M') }}
+                                        </small>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="text-center py-4">
+                        <i class="fas fa-chart-line fa-3x text-gray-300 mb-3"></i>
+                        <h5 class="text-gray-600">No evaluations yet</h5>
+                        <p class="text-muted">Start by uploading resumes and creating job descriptions.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="col-lg-4 mb-4">
+        <div class="card shadow">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Quick Actions</h6>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('dashboard.upload_resume') }}" class="btn btn-primary">
+                        <i class="fas fa-upload me-2"></i>Upload Resume
+                    </a>
+                    <a href="{{ url_for('dashboard.create_job') }}" class="btn btn-success">
+                        <i class="fas fa-plus me-2"></i>Create Job Description
+                    </a>
+                    <a href="{{ url_for('dashboard.evaluations') }}" class="btn btn-info">
+                        <i class="fas fa-chart-line me-2"></i>View Evaluations
+                    </a>
+                    {% if current_user.role == 'admin' %}
+                    <a href="{{ url_for('admin.index') }}" class="btn btn-warning">
+                        <i class="fas fa-cog me-2"></i>Admin Panel
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Jobs -->
+        <div class="card shadow mt-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Recent Jobs</h6>
+                <a href="{{ url_for('dashboard.jobs') }}" class="btn btn-sm btn-primary">
+                    View All
+                </a>
+            </div>
+            <div class="card-body">
+                {% if recent_jobs %}
+                    {% for job in recent_jobs %}
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1">{{ job.title }}</h6>
+                            <small class="text-muted">{{ job.company }}</small>
+                        </div>
+                        <span class="badge bg-{% if job.priority == 'high' %}danger{% elif job.priority == 'medium' %}warning{% else %}success{% endif %}">
+                            {{ job.priority.title() }}
+                        </span>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="text-center py-3">
+                        <i class="fas fa-briefcase fa-2x text-gray-300 mb-2"></i>
+                        <p class="text-muted mb-0">No jobs yet</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Performance Chart -->
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Evaluation Performance</h6>
+            </div>
+            <div class="card-body">
+                <canvas id="performanceChart" width="400" height="100"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Performance Chart
+const ctx = document.getElementById('performanceChart').getContext('2d');
+const performanceChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+            label: 'Evaluations',
+            data: [12, 19, 3, 5, 2, 3, 8],
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+{% endblock %}

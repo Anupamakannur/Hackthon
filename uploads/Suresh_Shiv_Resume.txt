@@ -1,0 +1,58 @@
+Suresh Shiv 
+shivsuresh1520@gmail.com | 9876543210 | LinkedIn |GitHub  
+
+SUMMARY  
+Results-driven Business Analyst with expertise in SQL, Power BI (DAX), Python and business research tools, Skilled in transforming raw data into actionable insights to drive business decisions. Proficient in web analytics, competitor analysis, data visualization, Strong analytical and problem-solving skills with expertise in sales research, customer segmentation and business intelligence.  
+
+SKILLS: 
+Languages: Python, SQL, VBA  
+ Libraries & Frameworks: Pandas, NumPy, Matplotlib, Seaborn  
+Tools: Power BI, Excel (Advanced formulas, pivot Tables, Power Query), Jupyter Notebook, Google Collab, Git   
+Cloud Computing: Basic knowledge of IaaS, PaaS, Storage, and Networking (Azure, AWS) Soft Skills: 
+Communication, Analytical skill, Leadership, Problem solving, Adaptability Business Intelligence & Web Analytics: Google Ads, SEO, Competitor Analysis  
+
+Education:  
+Punyashlok Ahilyadevi Holkar Solapur University, Solapur May - 2015  B.E in Electronics and Telecommunication  
+ Percentage – 71.67% 
+
+PROJECTS:  
+Expense Tracker & Automation Tools - Excel VB  
+•	Built user form- based Expense Tracker to categorize, sum, and visualize user-entered expenditures  
+•	Developed macros to auto-fill sequences, remove blank rows, and save workbooks with dynamically generated timestamps  
+•	Practiced VBA fundamentals: loops, conditional statements, MsgBox simple UI integration • Demonstrated file automation, data cleanup, and user interaction—all within a concise Excel VBA-enabled project  
+
+Vrinda Store Data Analysis | Excel| Link April-2023   
+•	Analysed the 2024 annual sales report Store Vrinda Share to identify trends, understand customer behaviour and generate actionable insights for increasing sales in the upcoming year.  
+•	Cleaned and pre-processed raw data to ensure accuracy and consistency using Excel. • Performed data analysis to uncover key performance indicators, sales patterns, and customer demographics • Designed and developed an interactive dashboard to visualize data trends, enabling store manager to make informed business decision and get 12% of profit.  
+
+Movie sales Analysis |Power BI| Link  
+•	Built an interactive Power BI Movie Sales dashboard to visualize budget, gross revenue, IMDb score, genre, and director trends.  
+•	Used complex parameters to drill down in worksheets and customize using filters and slicers. • Used different types of customized visualizations such as bar charts, pie charts, Donat charts, clustered bar charts, slicers, etc.  
+•	Using DAX found Action, Adventure, comedy and drama drive over 80% of total box office revenues. 
+
+Analysis on E-commerce product (TVs) Link  
+ EDA| SQL | Power BI  
+• Extracted and analysed 528 product data having 11 features from website using Beautiful Soup. • Performed data cleaning by handling 11% missing values and ensuring data consistency for accurate insights. • Market trend analysis-Understanding popular TV models having 4.1 rating and price trend. • Price comparison with different brands, Track price changes over the year between 2023 to 2025.  
+
+Digital Music Store Analysis   
+•	Analysed customer purchasing patterns Developed and executed SQL queries to analyse the Digital Music Store dataset addressing key business questions and providing actionable insights to the stakeholders. • and uncovered that around 60% of customers preferred playlists with diverse genres, leading to as customised product offering strategy.  
+•	Supported business growth by uncovering insights that informed marketing strategies and sales optimizations.  
+
+Energy Consumption Analysis Link  
+• Designed a relational database to analyse energy, emission, GDP and population data. • 
+Wrote complex SQL queries to extract insights on energy efficiency and economic impact. • Analysed trends across 6 interlinked tables and presented sustainability-focused insights.  
+
+Publications  
+Getting Started with Data Analysis: A Beginner's Guide" – Medium  
+Published a beginner-friendly blog introducing core data analysis concepts using Python and Excel. Explained data cleaning, exploratory data analysis (EDA), and visualization techniques with hands-on examples.   
+Well-received for its clarity and practical approach by students and aspiring analysts.  
+
+"Uncovering Insights with SQL: Practical Queries for Data Analysts" – Medium  
+Authored a blog demystifying essential SQL concepts including joins, aggregations, subqueries, and window functions.  
+Used real-world scenarios to demonstrate data extraction and insight generation techniques. Appreciated by entry-level professionals for its applied, easy-to-understand SQL use cases.  
+
+Certifications:  
+Gold in python programming (ID: M_101929) – Innomatics Research labs  
+Gold in Exploratory data Analysis (ID: M_102115) – Innomatics Research labs  
+Gold in Data Analysis with MySQL (ID: M_102071) & Gold in Power BI (ID:M_102167) - Innomatics Research labs  
+Deloitte Data Analytics job simulation certificate by Forage

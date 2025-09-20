@@ -1,0 +1,35 @@
+Tarun Kumar 
+Data Analyst | Power BI Analyst | Business Analyst   
+Tarunkumar@gmail.com| https://www.linkedin.com/intarun  |9876543210 
+
+Summary  
+Result-driven Data Analyst with expertise in SQL,Power BI, and Python.Skilled in transforming raw data into actionable insights to drive business decisions.Experienced in data visualization,business intelligence and database management with hands-on experience in MySQL, Power Query, and DAX Strong analytical and problem-solving skills with a keen interest in leveraging data to optimize business performance.  
+
+Education  
+Dr. Babasaheb Ambedkar Technological University  
+Bachelor of Technology(CSE) Dec.2021–June 2025 
+
+Technical Skills  
+Languages:Python,SQL(MySQL,Postgres).  
+Data Visualization:Matplotlib,Seaborn,PowerBI(Dashboards, DAX,DataModelling),Excel.  Developer Tools:Git,VsCode,GoogleCollab,PowerQuery.  Data Analysis:Pandas,NumPy.  
+
+Project  
+Web Scraping,Python April.2025  Analyzing prices of sold cars – Cars24   
+   
+∙ Developed a web scraping tool to extract detailed listings of used cars from Cars24, including data such as car model, price, year, mileage, fuel type, and location.  
+∙ Cleaned and structured the scraped data using Pandas for further analysis.  
+∙ Conducted exploratory data analysis (EDA) to identify pricing trends, popular car brands, and regional availability. ∙ Presented insights using data visualization tools (e.g., Matplotlib/Seaborn) to support data-driven decision-making.  
+
+MySQL May.2025–Present Library Management System  
+∙ Designed and implemented a normalized database schema for efficient book and member management. ∙ Developed stored procedures and triggers to automate over due fine calculations.  
+∙ Wrote optimized SQL queries for book tracking,issuing,and over due reports.  
+∙ Designed a reporting system for librarians to track book availability and member activity.  
+
+Power BI May.2025–Present  Sales Performance Dashboard  
+∙ Developed an interactive Power BI dashboard to visualize and analyze sales data across regions, products, and time periods.   
+∙ Key features included dynamic charts for monthly sales trends, top-performing products, regional sales comparison, and KPI cards to track revenue goals.  
+∙ Improved data-driven decision-making by providing clear insights into sales performance and growth opportunities. 
+
+Certifications 
+Achieved a golden rank in python module at Innomatics Research labs. May-2025 ∙ Gained expertise in data analysis,SQL,Excel,and visualization tools such as PowerBI.  
+∙ Learned data cleaning,transformation,and statistical analysis techniques.

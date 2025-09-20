@@ -1,0 +1,20 @@
+Data Science Interns - Walk-In Drive
+
+Internship Duration: 6 months, followed by permanent employment based on performance 
+Bond: 2.6 years, including the internship period (total 30 months from joining) 
+
+Role Overview: 
+• Work on data engineering, data visualization, and data science tasks. 
+• Build deep learning models using Generative AI, Computer Vision, and NLP. 
+• Apply ML and deep learning algorithms effectively. 
+• Work with data visualization tools like Tableau or Power BI. 
+• Perform data processing using Pandas and Spark. 
+• Possess strong analytical and problem-solving skills. 
+
+Eligibility Criteria: 
+• Qualification: B.Tech, BE 
+• Batch Eligibility: 2023 and earlier pass-outs 
+• Job Types: Full-time, Internship, Fresher, Permanent 
+• Stipend: ₹5,000 per month 
+• Schedule: Day shift, Monday to Friday 
+• Location: Pune (Onsite)

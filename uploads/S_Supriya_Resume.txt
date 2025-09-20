@@ -1,0 +1,40 @@
+S Supriya 
+supriya023@gmail.com, +91987674532 
+
+Objective  
+Aspiring Data Analyst with strong foundations in Python, SQL, Power BI, and data visualization. Experienced in handling real-world projects involving web scraping, EDA, and dashboard development. Eager to contribute to data-driven decision-making by transforming complex datasets into actionable insights. 
+
+Education  
+B.Tech in Computer Science And Engineering CGPA: 6.79 2021 – 2025 Karmaveer Bhaurao Patil College of Engineering,Satara  
+
+Data Science Internship  
+Innomatics Research Lab  
+
+SKILLS  
+Programming: Python , SQL, C++  
+Data Skills: EDA(Pandas, NumPy, Matplotlib, Seaborn), Data Cleaning, Visualization, Statistics 
+Data Tools: Power BI, Excel ,WebScrapin  
+Soft Skills: Problem-Solving, Data Interpretation, Team Collaboration  
+
+Project  
+Cricket Stats Analysis Project  
+Tools: Python (BeautifulSoup, Pandas), Power BI, EDA, Web Scraping  
+Scraped and structured Test cricket batting data from ESPNcricinfo using Python and BeautifulSoup for analysis.  
+Performed EDA using Pandas to uncover top-performing players, consistency trends, and format-specific insights.  
+Created a Power BI dashboard visualizing player rankings, yearly run aggregates, and country-wise performance patterns.  
+
+Grocery Store Management System  
+Tools: SQL, Python (Pandas, Matplotlib)  
+Designed a relational database with 7 interlinked tables for managing grocery operations. Used SQL for data modeling and business queries on customers, products, and sales.  Performed EDA using Python to analyze sales trends, customer behavior, and product performance.  
+Visualized insights with Matplotlib and summarized findings in a presentation.  
+
+Weather Data Analysis – Telangana  
+Tools: Python, SQL, Power BI  
+Analyzed rainfall, temperature, humidity, and wind speed data across Telangana's districts. 
+Performed EDA to find trends, anomalies, and seasonal patterns.  
+Built interactive Power BI dashboards to visualize weather metrics.  
+Explored correlations between climate parameters and regional variations.  
+
+Certificates  
+Data Science Master Vertual Internship - Eduskill  
+Python - Innomatics Research Lab

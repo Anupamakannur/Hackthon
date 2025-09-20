@@ -1,0 +1,50 @@
+Afroz Khan 
+HYDERABAD | afrozkhan7020@gmail.com |https://github.com/afrozkhan| https://www.linkedin.com/in/afrozkhan35b0822 
+
+CAREER OBJECTIVE  
+To secure a challenging role that leverages analytical skills, statistical knowledge, and programming expertise to drive data-driven decisions, optimize strategies, and deliver actionable insights through reports and visualizations.  
+
+EDUCATIONAL QUALIFICATIONS  
+AURORA DEGREE AND PG COLLEGE -(2020-2022)  
+Master of science (statistics)  CGPA:6.39  
+ST.ANN'S DEGREE AND PG COLLEGE FOR WOMEN,MALLAPUR-(2017-2020) 
+Bachelor of science (mathematics/statistics/computer science)  
+CGPA:8.6  
+
+PROJECTS  
+Zomato Delivery Analysis Using Tableau :  
+Analyzed the dataset using tableau to answer business questions posed by Chief strategy officer(CSO) such as the total number of cuisines in restaurants where zomato delivers food, top 5 restaurants based on price range,rating and number of cuisines each country has.  
+
+Music Store Analysis Using My Sql Project :  
+To analyze a music store database using my sql and find ways to optimize the store's operations.It involves querying multiple tables, joining from multiple tables and extracting key insights from the database.  
+
+Exploratory Data Analysis Using Beautiful Soup:  
+The purpose of the web scraping project on ambition box is to extract data from the website,Using beautiful soup, create dataset and make visualization. The data can be used to analyze companies according to ratings, salaries, locations, employee count of the company.  
+
+CERTIFICATIONS: 
+●	EXPLORATORY DATA ANALYSIS CERTIFICATE FROM INNOMATICS RESEARCH LAB  
+●	DATA ANALYSIS CERTIFICATE FROM INNOMATICS RESEARCH LAB ● Completed 
+the Mahindra pride classroom employability skills training and received a certificate of achievement for developing strong communication, teamwork and time management. -(09/2019)  
+
+TECHNICAL SKILLS  
+●	Programming language: Python  
+●	SQL  
+●	Statistics  
+●	Excel  
+●	Tableau  
+●	Power bi  
+
+Achievements  
+●	Secured 1st prize in start up club competition in college fest at St.ann's degree and pg college.  
+●	Secured 1st prize in quiz competition in science fair at kakatiya techno school.  
+
+SOFT SKILLS  
+●	Strong analytical skills  
+●	Adaptable  
+●	Decision making  
+●	Creativity  
+
+PERSONAL DETAILS  
+Date of Birth: 05-12-1996  
+Gender : Female  
+Languages known: English,Telugu, Hindi

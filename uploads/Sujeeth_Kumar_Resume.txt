@@ -1,0 +1,34 @@
+Sujeeth Kumar 
+Hyderabad, Telangana•sujithkumar2021@gmail.com • +91-9876543210 • linkedin.com/sujeeth--123a214  
+
+PROFESSIONAL SUMMARY  
+AI and Data Science enthusiast with expertise in Python, SQL, and data visualization. Experienced in data analytics and AI driven solutions through hands-on internships. Skilled in building predictive models, optimizing workflows, and extracting insights from complex datasets. Passionate about leveraging machine learning and data-driven approaches to solve real-world challenges.  
+
+EDUCATION  
+Bachelor of Engineering (Artificial Intelligence & Machine Learning) July 2022 -June 2025 Sahyadri Valley College of Engineering and Technology, Pune CGPA 8.20/10 Diploma- (Information & Technology) July 
+2019 – May 2022 Government Polytechnic Awasari, Pune Percentage – 79.38% Class 10th- SSC June 2018 – 
+May 2019 Shambhuling Shivacharya Vidyalaya, Latur Percentage – 83.80%  
+
+SKILLS  
+•	Programming Languages: Python, SQL, Statistics.  
+•	Frameworks : Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn.  
+•	Analytical Tools : Power BI, Excel, Tableau, MySQL, SQLite.  
+•	Data Analytics Skills : Data Cleaning, Exploratory Data Analysis (EDA), Data Visualization.  
+•	Platforms : Jupyter Notebook, Visual Studio Code.  
+
+ACADEMIC PROJECTS  
+SQL-Based Grocery Store Management System| LINK June 2025 - July 2025 • Created a database to manage grocery store data like products, customers, suppliers, and orders.  
+•	Wrote SQL queries to find useful information such as top-selling items and low stock products.  
+•	Analyzed sales and customer activity to help improve store performance.  
+•	Used joins and filters in SQL to connect different tables and get detailed reports.  
+•	Helped store managers make better decisions using the data.  
+
+Used Bike Market Analysis – CredR.com | LINK February 2025 - April 2025 • Scraped used bike data from CredR.com using Python (BeautifulSoup), extracting key features like Brand, Model, Year, Km, Cc, Owner, Location, Price, And Original Price..  
+•	Cleaned and structured the dataset using Pandas, handling missing values and converting data into analyzable formats. • Conducted exploratory data analysis (EDA) to study price trends based on brand, mileage, bike age, and location. • Visualized insights using Matplotlib and Seaborn,showing brand-wise average prices and most affordable models. • Delivered actionable insightsin a summary report with graphs and interactive visuals.  
+
+Deepfake Detection Using Machine Learning | LINK June 2024 - May 2025 • Developed a deepfake video detection system using LSTM (Long Short-Term Memory) neural networks. • Collected and used different types of fake videos like face swap, lip sync, and voice change for training. • Built the project using Python, with a Flask-based web interface for uploading and checking videos. • Measured accuracy of the model using metricslike accuracy, precision, recall, and F1-score.  
+•	Used LSTM to understand video frame sequences and detect changes that indicate fake content.  
+
+CERTIFICATIONS  
+• Career Essentials in Data Analysis ( Microsoft & LinkedIn ) | CERTIFICATE July 2024 • . Data Analytics Essentials 
+(CISCO) | CERTIFICATE May 2024 • Python for Data Science ( IBM ) | CERTIFICATE February 2024

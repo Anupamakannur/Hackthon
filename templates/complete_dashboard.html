@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Resume Evaluator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .dashboard-card {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .stat-card:hover::before {
+            left: 100%;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        .stat-card h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .btn-custom {
+            border-radius: 30px;
+            padding: 15px 35px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-custom:hover::before {
+            left: 100%;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .file-card {
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .file-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+            border-radius: 0 0 3px 0;
+        }
+        
+        .file-card:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .file-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px) scale(1.03);
+            border-color: #667eea;
+        }
+        
+        .file-card .file-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-right: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .file-card:hover .file-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .file-card .file-info {
+            flex: 1;
+        }
+        
+        .file-card .file-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .file-card .file-details {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .file-card .file-size {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .file-card .file-type {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .file-card .file-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .file-card .btn-delete {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .file-card .btn-delete:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(135deg, #ff5252 0%, #e53935 100%);
+        }
+        
+        .file-card .btn-view {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .file-card .btn-view:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            border: 2px dashed #dee2e6;
+            transition: all 0.3s ease;
+        }
+        
+        .empty-state:hover {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f0f2ff 0%, #e6e9ff 100%);
+        }
+        
+        .empty-state .empty-icon {
+            font-size: 4rem;
+            color: #6c757d;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+        
+        .empty-state .empty-text {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .empty-state .empty-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .empty-state .empty-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .match-card {
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 1px solid rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .score-high { 
+            color: #28a745; 
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+        }
+        
+        .score-medium { 
+            color: #ffc107; 
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+        }
+        
+        .score-low { 
+            color: #dc3545; 
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+        
+        .loading i {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border: none;
+            padding: 20px 25px;
+        }
+        
+        .card-header h5 {
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        .badge {
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .file-card h6 {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .file-card small {
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .btn-outline-danger {
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-danger:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+        }
+        
+        .alert {
+            border-radius: 15px;
+            border: none;
+            font-weight: 500;
+            animation: slideInDown 0.5s ease-out;
+        }
+        
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .h4 {
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .text-muted {
+            font-weight: 500;
+        }
+        
+        .card-body h6 {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .card-body small {
+            font-weight: 500;
+        }
+        
+        .row {
+            margin-bottom: 30px;
+        }
+        
+        .mb-4 {
+            margin-bottom: 2rem !important;
+        }
+        
+        .mb-3 {
+            margin-bottom: 1.5rem !important;
+        }
+        
+        .mb-2 {
+            margin-bottom: 1rem !important;
+        }
+        
+        .file-card-container {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .file-card-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .file-card-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .file-card-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+        
+        .file-card-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+        
+        .card-header .badge {
+            font-size: 1rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+        
+        .file-card .file-name {
+            word-break: break-word;
+            hyphens: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .file-card {
+                padding: 20px !important;
+            }
+            
+            .file-card .d-flex {
+                flex-direction: column;
+                align-items: flex-start !important;
+            }
+            
+            .file-card .file-icon {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            
+            .file-card .file-actions {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 15px;
+            }
+            
+            .file-card .file-details {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-file-alt me-2"></i>Resume Evaluator
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link active" href="/dashboard">Dashboard</a>
+                <a class="nav-link" href="/upload">Upload</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Stats Section -->
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="stat-card">
+                    <div class="d-flex align-items-center justify-content-center mb-3">
+                        <i class="fas fa-file-pdf fa-2x me-3"></i>
+                        <div>
+                            <h2 class="mb-0">{{ total_resumes }}</h2>
+                            <p class="mb-0">Total Resumes</p>
+                        </div>
+                    </div>
+                    <div class="progress" style="height: 4px; background: rgba(255,255,255,0.2);">
+                        <div class="progress-bar bg-white" style="width: {{ (total_resumes / 20 * 100) if total_resumes <= 20 else 100 }}%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-card">
+                    <div class="d-flex align-items-center justify-content-center mb-3">
+                        <i class="fas fa-briefcase fa-2x me-3"></i>
+                        <div>
+                            <h2 class="mb-0">{{ total_jobs }}</h2>
+                            <p class="mb-0">Job Descriptions</p>
+                        </div>
+                    </div>
+                    <div class="progress" style="height: 4px; background: rgba(255,255,255,0.2);">
+                        <div class="progress-bar bg-white" style="width: {{ (total_jobs / 10 * 100) if total_jobs <= 10 else 100 }}%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-card">
+                    <div class="d-flex align-items-center justify-content-center mb-3">
+                        <i class="fas fa-database fa-2x me-3"></i>
+                        <div>
+                            <h2 class="mb-0">{{ total_size_display }} {{ total_size_unit }}</h2>
+                            <p class="mb-0">Total Size</p>
+                        </div>
+                    </div>
+                    <div class="progress" style="height: 4px; background: rgba(255,255,255,0.2);">
+                        <div class="progress-bar bg-white" style="width: {{ (total_size_display / 100 * 100) if total_size_display <= 100 else 100 }}%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card dashboard-card">
+                    <div class="card-header text-center">
+                        <h4 class="mb-0">
+                            <i class="fas fa-cogs me-2"></i>Analysis & Management Center
+                        </h4>
+                        <p class="mb-0 mt-2 opacity-75">Manage your files and run intelligent analysis</p>
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <a href="/" class="btn btn-outline-primary btn-custom w-100">
+                                    <i class="fas fa-home me-2"></i>Home
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="/upload" class="btn btn-success btn-custom w-100">
+                                    <i class="fas fa-upload me-2"></i>Upload Files
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <button onclick="runMatching()" class="btn btn-warning btn-custom w-100" id="matchingBtn">
+                                    <i class="fas fa-search me-2"></i>Run Analysis
+                                </button>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <button onclick="refreshDashboard()" class="btn btn-info btn-custom w-100">
+                                    <i class="fas fa-sync-alt me-2"></i>Refresh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- File Management -->
+        <div class="row mb-5">
+            <div class="col-md-6 mb-4">
+                <div class="card dashboard-card h-100">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <h5 class="mb-0">
+                                    <i class="fas fa-file-pdf me-2"></i>Resumes
+                                </h5>
+                                <small class="opacity-75">{{ uploaded_resumes|length }} files uploaded</small>
+                            </div>
+                            <span class="badge bg-primary">{{ uploaded_resumes|length }}</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        {% if uploaded_resumes|length > 0 %}
+                        <div class="file-card-container">
+                            {% for resume in uploaded_resumes %}
+                            <div class="file-card p-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon bg-primary text-white">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="file-info">
+                                        <div class="file-name">{{ resume.name }}</div>
+                                        <div class="file-details">
+                                            <span class="file-size">
+                                                <i class="fas fa-weight me-1"></i>{{ file_sizes[resume.name] }} KB
+                                            </span>
+                                            <span class="file-type">
+                                                <i class="fas fa-user me-1"></i>Resume
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="file-actions">
+                                        <button class="btn-view" onclick="viewFile('{{ resume.name }}')">
+                                            <i class="fas fa-eye me-1"></i>View
+                                        </button>
+                                        <button class="btn-delete" onclick="confirmDelete('resume', '{{ resume.name }}')">
+                                            <i class="fas fa-trash me-1"></i>Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="empty-state">
+                            <div class="empty-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="empty-text">No resumes uploaded yet</div>
+                            <a href="/upload" class="empty-btn">
+                                <i class="fas fa-plus me-2"></i>Upload Resume
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card dashboard-card h-100">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <h5 class="mb-0">
+                                    <i class="fas fa-briefcase me-2"></i>Job Descriptions
+                                </h5>
+                                <small class="opacity-75">{{ job_descriptions|length }} files uploaded</small>
+                            </div>
+                            <span class="badge bg-success">{{ job_descriptions|length }}</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        {% if job_descriptions|length > 0 %}
+                        <div class="file-card-container">
+                            {% for job in job_descriptions %}
+                            <div class="file-card p-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon bg-success text-white">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <div class="file-info">
+                                        <div class="file-name">{{ job.name }}</div>
+                                        <div class="file-details">
+                                            <span class="file-size">
+                                                <i class="fas fa-weight me-1"></i>{{ file_sizes[job.name] }} KB
+                                            </span>
+                                            <span class="file-type">
+                                                <i class="fas fa-briefcase me-1"></i>Job Description
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="file-actions">
+                                        <button class="btn-view" onclick="viewFile('{{ job.name }}')">
+                                            <i class="fas fa-eye me-1"></i>View
+                                        </button>
+                                        <button class="btn-delete" onclick="confirmDelete('job', '{{ job.name }}')">
+                                            <i class="fas fa-trash me-1"></i>Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="empty-state">
+                            <div class="empty-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="empty-text">No job descriptions uploaded yet</div>
+                            <a href="/upload" class="empty-btn">
+                                <i class="fas fa-plus me-2"></i>Upload Job Description
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Matching Results -->
+        <div class="row" id="matchingResults" style="display: none;">
+            <div class="col-12">
+                <div class="card dashboard-card">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <h5 class="mb-0">
+                                    <i class="fas fa-chart-line me-2"></i>Matching Analysis Results
+                                </h5>
+                                <small class="opacity-75">AI-powered resume-job matching with detailed insights</small>
+                            </div>
+                            <span class="badge bg-info">
+                                <i class="fas fa-robot me-1"></i>AI Analysis
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div id="matchesContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showAlert(message, type = 'success') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type === 'success' ? 'success' : 'danger'} alert-dismissible fade show`;
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.body.insertBefore(alertDiv, document.body.firstChild);
+            setTimeout(() => alertDiv.remove(), 5000);
+        }
+
+        function confirmDelete(fileType, filename) {
+            if (confirm(`Are you sure you want to delete ${filename}?`)) {
+                deleteFile(fileType, filename);
+            }
+        }
+        
+        function viewFile(filename) {
+            // Create a modal or new window to view file content
+            const filePath = `/uploads/${filename}`;
+            window.open(filePath, '_blank');
+        }
+
+        function deleteFile(fileType, filename) {
+            fetch(`/api/delete/${fileType}/${filename}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    showAlert(data.error, 'error');
+                } else {
+                    showAlert(data.message, 'success');
+                    setTimeout(() => location.reload(), 1000);
+                }
+            })
+            .catch(error => {
+                showAlert('Error deleting file: ' + error, 'error');
+            });
+        }
+
+        function refreshDashboard() {
+            location.reload();
+        }
+
+        function runMatching() {
+            console.log('Starting matching analysis...');
+            const resultsDiv = document.getElementById('matchingResults');
+            const containerDiv = document.getElementById('matchesContainer');
+            const matchingBtn = document.getElementById('matchingBtn');
+            
+            resultsDiv.style.display = 'block';
+            containerDiv.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin me-2"></i>Running matching analysis... Please wait...</div>';
+            
+            matchingBtn.disabled = true;
+            matchingBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Analyzing...';
+            
+            fetch('/api/match', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                console.log('Response status:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Matching data received:', data);
+                if (data.error) {
+                    containerDiv.innerHTML = `<div class="alert alert-danger">Error: ${data.error}</div>`;
+                } else if (data.matches && data.matches.length > 0) {
+                    displayMatches(data.matches);
+                } else {
+                    containerDiv.innerHTML = '<div class="alert alert-warning">No matches found.</div>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                containerDiv.innerHTML = `<div class="alert alert-danger">Error: ${error.message}</div>`;
+            })
+            .finally(() => {
+                matchingBtn.disabled = false;
+                matchingBtn.innerHTML = '<i class="fas fa-search me-2"></i>Run Matching Analysis';
+            });
+        }
+
+        function displayMatches(matches) {
+            console.log('Displaying matches:', matches);
+            const containerDiv = document.getElementById('matchesContainer');
+            
+            if (matches.length === 0) {
+                containerDiv.innerHTML = '<div class="alert alert-warning">No matches found.</div>';
+                return;
+            }
+            
+            // Collect all job descriptions and their analysis
+            let jobAnalysis = {};
+            
+            matches.forEach(match => {
+                match.matches.forEach(jobMatch => {
+                    if (!jobAnalysis[jobMatch.job_name]) {
+                        jobAnalysis[jobMatch.job_name] = {
+                            job_title: jobMatch.job_title,
+                            candidates: []
+                        };
+                    }
+                    jobAnalysis[jobMatch.job_name].candidates.push({
+                        candidate_name: match.candidate_name,
+                        relevance_score: jobMatch.relevance_score,
+                        skill_score: jobMatch.skill_score,
+                        education_score: jobMatch.education_score,
+                        experience_score: jobMatch.experience_score,
+                        suitability: jobMatch.suitability,
+                        matched_skills: jobMatch.matched_skills,
+                        missing_skills: jobMatch.missing_skills
+                    });
+                });
+            });
+            
+            let html = '';
+            
+            // Display job description analysis
+            Object.values(jobAnalysis).forEach(job => {
+                html += `
+                    <div class="match-card">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">💼 ${job.job_title}</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                `;
+                
+                // Sort candidates by relevance score (highest first)
+                job.candidates.sort((a, b) => b.relevance_score - a.relevance_score);
+                
+                job.candidates.forEach(candidate => {
+                    const scoreClass = candidate.suitability.toLowerCase();
+                    const suitabilityClass = candidate.suitability.toLowerCase();
+                    
+                    html += `
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">👤 ${candidate.candidate_name}</h6>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="h4 score-${scoreClass}">${candidate.relevance_score}%</span>
+                                        <span class="badge bg-${suitabilityClass === 'high' ? 'success' : suitabilityClass === 'medium' ? 'warning' : 'danger'}">${candidate.suitability}</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <small class="text-muted">
+                                            Skills: ${candidate.skill_score}% | 
+                                            Education: ${candidate.education_score}% | 
+                                            Experience: ${candidate.experience_score}%
+                                        </small>
+                                    </div>
+                                    <div class="mb-2">
+                                        <strong>✅ Matched:</strong> ${candidate.matched_skills.join(', ') || 'None'}
+                                    </div>
+                                    <div>
+                                        <strong>❌ Missing:</strong> ${candidate.missing_skills.join(', ') || 'None'}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            containerDiv.innerHTML = html;
+        }
+
+        // Make functions globally accessible
+        window.runMatching = runMatching;
+        window.refreshDashboard = refreshDashboard;
+        window.deleteFile = deleteFile;
+        window.confirmDelete = confirmDelete;
+        
+        console.log('Dashboard loaded successfully');
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+Rachana M 
+
+Phone: +919876543210 
+E-mail: rachana202@gmail.com 
+LinkedIn: https://www.linkedin.com/in/rachanam249/ 
+
+Results-driven and highly motivated MCA graduate with a strong foundation in computer science and a passion for data analysis, machine learning, and software development. Proficient in Python, SQL, and data visualization tools, with hands-on experience in database management, web scraping, and machine learning model development. Adept at leveraging technology to solve complex problems and extract actionable insights. Excellent interpersonal and communication skills, with a commitment to delivering high-quality results. 
+
+Skills:
+●	Programming: Python, SQL, Python Full Stack 
+●	Data Analysis: Exploratory Data Analysis (EDA), Pandas, NumPy 
+●	Data Visualization: Matplotlib, Seaborn, pyplot 
+●	Business Intelligence (BI) Tool: Tableau 
+●	Descriptive and Inferential Statistics 
+●	Machine Learning 
+●	Database Management 
+●	Web Scraping 
+●	Python Django 
+●	MySQL Database 
+●	Data Cleaning 
+●	Problem Solving 
+●	Communication Skills 
+
+Education:
+Master of Computer Application (MCA) 
+Aurora's PG College, Hyderabad, Telangana 
+CGPA: 8.0 
+Dec 2021 – Oct 2023 
+
+Bachelor of Science 
+A.V Degree College, Hyderabad, Telangana 
+CGPA: 8.92 
+May 2018 – Aug 2021 
+
+Projects:
+Data Analysis | Prominent Series Website 
+Hyderabad, Telangana | Jan 2024 – May 2025 
+●	Conducted Web Scraping to gather data from the website for analysis. 
+●	Performed Exploratory Data Analysis (EDA) to extract valuable insights from the collected data. 
+●	Cleaned and pre-processed data, ensuring data quality and integrity. 
+●	Created informative visualizations using Matplotlib and Seaborn. 
+●	Addressed specific problem statements to enhance user experience on the website. 
+
+SQL Analysis | Library Project 
+Hyderabad, Telangana | Aug 2023 – Dec 2023 
+●	Designed and implemented database tables for a library project. 
+●	Applied constraints to ensure data integrity and consistency. 
+●	Utilized advanced SQL functions, including group by, joins, and window functions. 
+●	Effectively addressed complex queries and extracted meaningful insights for library analysis. 
+
+Software Developer | Online Doctor Appointment System 
+Hyderabad, Telangana | Mar 2022 – Jul 2022 
+●	Developed a comprehensive Online Doctor Appointment System using Python, Django, and MYSQL Database. 
+●	Empowered users to consult doctors online and receive prescriptions, improving healthcare accessibility. 
+●	Ensured seamless user experience through intuitive web design and functionality. 
+●	Enhanced system security and data privacy measures. 
+
+Tableau | Zomato Online Delivery 
+Hyderabad, Telangana | Oct 2021 – Feb 2022 
+●	Utilized Tableau to develop interactive visualizations for Zomato online delivery data. 
+●	Revealed valuable insights into customer preferences, geographical patterns, and delivery trends. 
+●	Streamlined delivery operations and facilitated data-informed decision-making. 
+●	Contributed to improving the efficiency of the delivery service. 
+
+Certification:
+●	Innomatics: Research Labs: Exploratory Data Analysis on Best Series 
+●	Hacker Rank: SQL (Basic) 
+●	Certified in MS Excel 
+
+Extra-Curricular Achievements:
+● Volunteer of NSS (National Service Scheme) and actively participated in various social camps.

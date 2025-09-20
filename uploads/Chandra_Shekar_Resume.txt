@@ -1,0 +1,33 @@
+Chandra shekar 
+Chandrashekar@gmail.com | linkedin.com/in/chandra-https://github.com/chandra006 | 9876543210 
+
+Professional Summary  
+A Data Analytics enthusiast with a background in Automation and Robotics, skilled in Python, SQL, Power BI, and Excel. worked on projects like real estate analysis and Dashboards in Power-BI combining data insights with problem-solving. With strong analytical and technical skills, aim to drive smart, data-based decisions in innovative environments.  
+
+Education  
+Bachelor of Engineering (B.E.) Automation & Robotics Engineering (Dec 21-May25) Savitribai Phule Pune University. [ 9.3 CGPA ] 
+ Innomatics Research Lab (Data Analyst) (Nov 24-present)   
+
+Technical Skills  
+Data Analysis & Data Visualization: SQL (My SQL, PostgreSQL) Power BI, Matplotlib, Seaborn, Pandas, NumPy ∙ 
+Programming & Data Processing: Python (Pandas, NumPy), Power Query, DAX Excel (Pivot Table, Data Validation), PowerPoint, Word  
+
+ Project  
+Pune Rental Insights - Magicbricks (Python) (March 25)  ∙ Analyzed rental property data to identify pricing trends by location and property type.  
+∙ Performed EDA and visualized key insights using Python, Pandas, Matplotlib and Seaborn. ∙ 
+Highlighted market patterns and outliers to support smarter rental decisions and proper Insights  
+
+ Sales Dashboard– Adidas Data (Power BI) (April 25) ∙ Created an interactive dashboard to analyze sales by region, product, and time.  
+∙ Used DAX to calculate KPIs like revenue, profit, and quantity sold.  
+∙ Enabled data-driven insights through filters, slicers, and clean visualizations.  
+
+Library Database Analysis (MySQL ) (March 25) ∙ Designed and managed a relational database for a library system using MySQL.  
+∙ Executed complex queries to analyze book circulation, user activity, and popular genres. ∙ Applied joins, aggregate functions, and subqueries to extract meaningful insights.  
+
+Expererience   
+Data Science & Machine Learning Intern (Dec 23 - Jan 24) Maxgen Technologies Pvt. Ltd., Kharadi, Pune  
+∙ Built a Brain Stroke Prediction model using machine learning techniques like Logistic Regression and Decision Tree.  
+∙ Performed data cleaning, feature selection, and EDA to prepare and understand real-world health data. ∙ Visualized key insights using Python libraries such as Matplotlib and Seaborn in Jupyter Notebook.  
+
+Certification  
+Python programming, Data analytics
